@@ -56,21 +56,25 @@ class D: public A, public B, public C
 		 //Implement this function
 		 void update_val(int new_val)
 		 {
-           if (val == new_val){
+           //base case
+           if (new_val==1){
                return;
            }  
            if (new_val % 2 == 0){
+               new_val = new_val/2;
                A::func(val);
-               update_val(val);
+               return update_val(new_val);
            }
            if (new_val % 3 == 0){
+               new_val = new_val/3;
                B::func(val);
-               update_val(val);
+               return update_val(new_val);
            }
            
             if (new_val % 5 == 0){
+               new_val = new_val/5;
                C::func(val);
-               update_val(val);
+               return update_val(new_val);
              }  
          
 		 }
