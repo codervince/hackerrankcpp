@@ -58,17 +58,17 @@ public:
         h= height;
         BoxesCreated++;
     }
-     Box(const Box &box){
+    //copy constructor
+    //format: classname (const classname &obj) {
+    // body of constructor}
+    
+    Box(const Box &box){
      l = box.l;
      b = box.b;
      h = box.h;
      BoxesCreated++;
     }
-    
-      //copy constructor
-    //format: classname (const classname &obj) {
-   // body of constructor}
-   
+
     friend ostream &operator<<(ostream& out, const Box& b)
     {
     BoxesCreated++; //needed to pass test case - ie demonstrate inner workings of << rather than make any intuitive sense :p
