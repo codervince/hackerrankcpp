@@ -3,20 +3,20 @@ class Person {
         Person()
         {
         }
-       virtual void getdata() const {cout << "Person getdata()";}
-       virtual void putdata() const {cout << "Person putdata()";}
-       virtual void setage(int theage){
-           age = theage;
+       virtual void getdata()
+       {
+           cout << "in Person";
        }
-       virtual int getage() {
-           return age;
+       virtual void putdata()
+       {
+          cout << "in Person";
        }
-       virtual void setname(string thename){
-           name = thename;
-       }
-       virtual string getname() {
-           return name;
-       } 
+      //non virtual but still accessible
+      void setvalues (string a, int b)
+      {   name=a;
+          age=b; 
+      }
+ 
   protected:
     string name;
     int age;
@@ -37,7 +37,7 @@ class Professor: public Person
     public:
         Professor(){}
     
-        void getdata() const {
+        void getdata() {
             string inname;
             int inage;
             int inpublications;
@@ -45,7 +45,10 @@ class Professor: public Person
             cin >> inname;
             cin >> inage;
             cin >> inpublications;
-            cout << inname << "here" << inage<< endl;
+            cout << inname << "here " << inage<< endl;
+            name = inname;
+            age = inage;
+            
             //name, age is updated in Person - publications
             //create Person
 
@@ -53,10 +56,11 @@ class Professor: public Person
             //id is updated by constructor
     }
     
-        virtual void putdata(){
+        void putdata(){
             //print out name age publications id
             cout << "called here";
-            cout << Person::getname() << " " << Person::getage() << " " << publications << " " << curid << endl;
+            cout << name << " " << age << endl;
+            //cout << getname() << " " << getage() << " " << publications << " " << curid << endl;
 
         }
  protected:
